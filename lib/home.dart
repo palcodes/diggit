@@ -15,7 +15,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Future<User> reqsend() async {
     List<User> users;
-    var response = await http.get('https://api.github.com/users');
+    var response = await http.get('https://api.github.com/users?per_page=50');
     if (response.statusCode == 200) {
       print('STATUS ON FIRST REQUEST = 200');
       users = (json.decode(response.body) as List)
@@ -24,6 +24,9 @@ class _MyHomePageState extends State<MyHomePage> {
       final random = new Random();
       var theUser = users[random.nextInt(users.length)];
       print(theUser.url);
+      var response2 = await http.get(theUser.url);
+      var foundUser = Meets.fromJson(json.decode(response2.body));
+      print("${foundUser.name} \n ${foundUser.bio}");
     } else {
       print('NULL');
       return null;
