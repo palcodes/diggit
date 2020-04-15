@@ -47,33 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           children: <Widget>[
             Text('Lets see'),
-            // FutureBuilder(
-            //   future: reqsend(),
-            //   builder: (context, snapshot) {
-            //     if (snapshot.hasData) {
-            //       print(snapshot);
-            //       return Column(
-            //         children: <Widget>[
-            //           Image.network(
-            //             snapshot.data.avatarUrl,
-            //             fit: BoxFit.cover,
-            //             width: 120,
-            //             height: 120,
-            //           ),
-            //           Text(
-            //             '\n ${snapshot.data.name} \n Followers: ${snapshot.data.followers} \n Following: ${snapshot.data.following} \n Bio: ${snapshot.data.bio} \n Repos -> ${snapshot.data.reposUrl}',
-            //             style: GoogleFonts.poppins(fontSize: 30),
-            //           ),
-            //         ],
-            //       );
-            //     } else if (snapshot.hasError) {
-            //       return Text('${snapshot.error.toString()}');
-            //     } else {
-            //       print(snapshot.data);
-            //       return Text('Error');
-            //     }
-            //   },
-            // )
           ],
         ),
       ),
