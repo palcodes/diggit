@@ -158,6 +158,54 @@ class _MyHomePageState extends State<MyHomePage> {
                 boxShadow: [BoxShadow(color: Colors.grey[500], blurRadius: 20)],
                 borderRadius: BorderRadius.circular(12)),
           ),
+          Container(
+            margin: EdgeInsets.only(top: 35, left: 45),
+            child: Text(
+              'Repositories',
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600, fontSize: 20),
+            ),
+          ),
+          SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(
+                        top: 20, left: 35, right: 12, bottom: 15),
+                    height: 150,
+                    width: 230,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(color: Colors.grey[500], blurRadius: 20)
+                        ]),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20, right: 12, bottom: 15),
+                    height: 150,
+                    width: 230,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(color: Colors.grey[500], blurRadius: 20)
+                        ]),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20, right: 12, bottom: 15),
+                    height: 150,
+                    width: 230,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(color: Colors.grey[500], blurRadius: 20)
+                        ]),
+                  ),
+                ],
+              ))
         ],
       ),
     );
