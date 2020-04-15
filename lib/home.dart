@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   indent: 8,
                   endIndent: 8,
                   width: 2,
-                  color: Colors.grey[500],
+                  color: Color.fromRGBO(30, 33, 37, 1),
                 ),
                 Text('Following',
                     style: GoogleFonts.poppins(
