@@ -1,4 +1,5 @@
 import 'package:diggit/models/meetsModel.dart';
+import 'package:diggit/models/reposModel.dart';
 import 'package:diggit/models/userModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,6 +16,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Future<Meets> reqsend() async {
     List<User> users;
+    List<Repos> repos;
     var response = await http.get('https://api.github.com/users?per_page=50');
     if (response.statusCode == 200) {
       print('STATUS ON FIRST REQUEST = 200');
@@ -25,7 +27,11 @@ class _MyHomePageState extends State<MyHomePage> {
       var theUser = users[random.nextInt(users.length)];
       print(theUser.url);
       var response2 = await http.get(theUser.url);
+      var response3 = await http.get(theUser.reposUrl);
       var foundUser = Meets.fromJson(json.decode(response2.body));
+      var reposOfUser = (json.decode(response3.body) as List)
+          .map((i) => Repos.fromJson(i))
+          .toList();
       print("${foundUser.name} \n ${foundUser.bio}");
       return foundUser;
     } else {
@@ -76,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Text(
                               '${snapshot.data.bio ?? "This user doesnt have a bio"}',
                               style: GoogleFonts.poppins(
-                                  fontSize: 16, fontWeight: FontWeight.w300),
+                                  fontSize: 20, fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
@@ -157,12 +163,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: <Widget>[
                               Text('${snapshot.data.followers}',
                                   style: GoogleFonts.poppins(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500)),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600)),
                               Text('Followers',
                                   style: GoogleFonts.poppins(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w400)),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500)),
                             ]),
                       ),
                       VerticalDivider(
@@ -179,12 +185,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: <Widget>[
                               Text('${snapshot.data.followers}',
                                   style: GoogleFonts.poppins(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500)),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600)),
                               Text('Following',
                                   style: GoogleFonts.poppins(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w400)),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500)),
                             ]),
                       )
                     ],
