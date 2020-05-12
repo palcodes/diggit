@@ -27,11 +27,11 @@ class _MyHomePageState extends State<MyHomePage> {
       var theUser = users[random.nextInt(users.length)];
       print(theUser.url);
       var response2 = await http.get(theUser.url);
-      var response3 = await http.get(theUser.reposUrl);
+      // var response3 = await http.get(theUser.reposUrl);
       var foundUser = Meets.fromJson(json.decode(response2.body));
-      var reposOfUser = (json.decode(response3.body) as List)
-          .map((i) => Repos.fromJson(i))
-          .toList();
+      // var reposOfUser = (json.decode(response3.body) as List)
+      //     .map((i) => Repos.fromJson(i))
+      //     .toList();
       print("${foundUser.name} \n ${foundUser.bio}");
       return foundUser;
     } else {
@@ -80,9 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                   fontWeight: FontWeight.w600, fontSize: 20),
                             ),
                             Text(
-                              '${snapshot.data.bio ?? "This user doesnt have a bio"}',
+                              '${snapshot.data.bio ?? "Oops I don't have a bio"}',
                               style: GoogleFonts.poppins(
-                                  fontSize: 20, fontWeight: FontWeight.w400),
+                                  fontSize: 15, fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
@@ -183,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              Text('${snapshot.data.followers}',
+                              Text('${snapshot.data.following}',
                                   style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600)),
