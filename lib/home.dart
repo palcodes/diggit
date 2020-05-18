@@ -14,6 +14,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  
+  
   Future<Meets> reqsend() async {
     List<User> users;
     List<Repos> repos;
@@ -27,11 +29,11 @@ class _MyHomePageState extends State<MyHomePage> {
       var theUser = users[random.nextInt(users.length)];
       print(theUser.url);
       var response2 = await http.get(theUser.url);
-      // var response3 = await http.get(theUser.reposUrl);
+      var response3 = await http.get(theUser.reposUrl);
       var foundUser = Meets.fromJson(json.decode(response2.body));
-      // var reposOfUser = (json.decode(response3.body) as List)
-      //     .map((i) => Repos.fromJson(i))
-      //     .toList();
+      repos = (json.decode(response3.body) as List)
+          .map((i) => Repos.fromJson(i))
+          .toList();
       print("${foundUser.name} \n ${foundUser.bio}");
       return foundUser;
     } else {
