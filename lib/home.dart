@@ -17,9 +17,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    var meetUser = AbstractedFunc().getTheUser();
-    AbstractedFunc().infoFoundUser(meetUser);
-    AbstractedFunc().getRepos(meetUser);
   }
 
   @override
