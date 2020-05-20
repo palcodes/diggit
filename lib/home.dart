@@ -11,12 +11,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
+  appFunction() async {
+    User meet = await getTheUser();
+    infoFoundUser(meet);
+    getRepos(meet);
+  }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    appFunction();
   }
 
   @override
