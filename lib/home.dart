@@ -1,12 +1,9 @@
-import 'package:diggit/models/meetsModel.dart';
-import 'package:diggit/models/reposModel.dart';
-import 'package:diggit/models/userModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart' as http;
 
-import 'dart:convert';
-import 'dart:math';
+import 'package:diggit/models/userModel.dart';
+
+import 'package:diggit/abstract.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -15,48 +12,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   
-  
-  Future<Meets> reqsend() async {
-    List<User> users;
-    List<Repos> repos;
-    var response = await http.get('https://api.github.com/users?per_page=50');
-    if (response.statusCode == 200) {
-      print('STATUS ON FIRST REQUEST = 200');
-      users = (json.decode(response.body) as List)
-          .map((i) => User.fromJson(i))
-          .toList();
-      final random = new Random();
-      var theUser = users[random.nextInt(users.length)];
-      print(theUser.url);
-      var response2 = await http.get(theUser.url);
-      var response3 = await http.get(theUser.reposUrl);
-      var foundUser = Meets.fromJson(json.decode(response2.body));
-      repos = (json.decode(response3.body) as List)
-          .map((i) => Repos.fromJson(i))
-          .toList();
-      print("${foundUser.name} \n ${foundUser.bio}");
-      for(int loop = 0; loop < repos.length; loop++){
-        print('REPOS: \n'+ repos[loop].name);
-      }
-      return foundUser;
-    } else {
-      print('NULL');
-      return null;
-    }
-  }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    reqsend();
+    var meetUser = AbstractedFunc().getTheUser();
+    AbstractedFunc().infoFoundUser(meetUser);
+    AbstractedFunc().getRepos(meetUser);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: reqsend(),
+        // future: reqsend(),
         builder: (context, snapshot) {
           if (snapshot.hasData == true) {
             return ListView(
