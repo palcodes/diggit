@@ -7,7 +7,6 @@ class Meets {
   String htmlUrl;
   String followersUrl;
   String followingUrl;
-  String reposUrl;
   String name;
   String bio;
   int followers;
@@ -22,7 +21,6 @@ class Meets {
     this.htmlUrl,
     this.followersUrl,
     this.followingUrl,
-    this.reposUrl,
     this.name,
     this.followers,
     this.following,
@@ -37,7 +35,6 @@ class Meets {
     htmlUrl = json['html_url'];
     followersUrl = json['followers_url'];
     followingUrl = json['following_url'];
-    reposUrl = json['repos_url'];
     name = json['name'];
     bio = json['bio'];
     followers = json['followers'];
@@ -54,7 +51,6 @@ class Meets {
     data['html_url'] = this.htmlUrl;
     data['followers_url'] = this.followersUrl;
     data['following_url'] = this.followingUrl;
-    data['repos_url'] = this.reposUrl;
     data['name'] = this.name;
     data['bio'] = this.bio;
     data['followers'] = this.followers;

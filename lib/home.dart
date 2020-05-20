@@ -35,6 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
           .map((i) => Repos.fromJson(i))
           .toList();
       print("${foundUser.name} \n ${foundUser.bio}");
+      for(int loop = 0; loop < repos.length; loop++){
+        print('REPOS: \n'+ repos[loop].name);
+      }
       return foundUser;
     } else {
       print('NULL');

@@ -15,7 +15,7 @@ class User {
     // login = json['login'];
     // id = json['id'];
     url = json['url'];
-    reposUrl = json['reposUrl'];
+    reposUrl = json['repos_url'];
   }
 
   Map<String, dynamic> toJson() {
@@ -23,7 +23,7 @@ class User {
     // data['login'] = this.login;
     // data['id'] = this.id;
     data['url'] = this.url;
-    data['reposUrl'] = this.reposUrl;
+    data['repos_url'] = this.reposUrl;
     return data;
   }
 }
