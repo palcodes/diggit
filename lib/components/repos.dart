@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:diggit/models/meetsModel.dart';
-import 'package:diggit/main.dart';
+import 'package:diggit/abstract.dart';
+import 'package:diggit/home.dart';
 
 class RepoList extends StatefulWidget {
   @override
@@ -9,6 +9,7 @@ class RepoList extends StatefulWidget {
 }
 
 class _RepoListState extends State<RepoList> {
+
   @override
   Widget build(BuildContext context) {
     return Container(

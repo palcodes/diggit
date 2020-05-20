@@ -31,5 +31,8 @@ Future<List<Repos>> getRepos(User theUser) async {
   List<Repos> repos = (json.decode(resRepo.body) as List)
       .map((i) => Repos.fromJson(i))
       .toList();
+  for(int i = 0; i < repos.length; i++){
+    print("REPOS -> " + repos[i].name);
+  }
   return repos;
 }

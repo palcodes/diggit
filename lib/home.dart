@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:diggit/models/userModel.dart';
+import 'package:diggit/models/meetsModel.dart';
 
 import 'package:diggit/abstract.dart';
 
@@ -11,10 +12,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  appFunction() async {
+  Future appFunction() async {
     User meet = await getTheUser();
-    infoFoundUser(meet);
-    getRepos(meet);
+    Meets info = await infoFoundUser(meet);
+    return info;
   }
 
   @override
@@ -28,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        // future: reqsend(),
+        future: appFunction(),
         builder: (context, snapshot) {
           if (snapshot.hasData == true) {
             return ListView(
