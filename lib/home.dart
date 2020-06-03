@@ -32,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
         future: appFunction(),
         builder: (context, snapshot) {
           if (snapshot.hasData == true) {
+            // print("BIO:" + snapshot.data.bio);
             return ListView(
               children: <Widget>[
                 Stack(

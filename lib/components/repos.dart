@@ -1,14 +1,9 @@
+import 'package:diggit/models/reposModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:diggit/abstract.dart';
-import 'package:diggit/home.dart';
-
-class RepoList extends StatefulWidget {
-  @override
-  _RepoListState createState() => _RepoListState();
-}
-
-class _RepoListState extends State<RepoList> {
+class RepoList extends StatelessWidget {
+  final Repos repos;
+  RepoList({this.repos});
 
   @override
   Widget build(BuildContext context) {
@@ -25,23 +20,23 @@ class _RepoListState extends State<RepoList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Repo Name',
+            repos.name,
             style: GoogleFonts.poppins(
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
           ),
           Text(
-            'Language Name',
+            repos.language,
             style: GoogleFonts.poppins(
                 fontSize: 13,
                 fontWeight: FontWeight.w700,
                 color: Colors.grey[500]),
           ),
           Text(
-            'Repo description',
+            repos.description,
             style: GoogleFonts.poppins(
-              fontSize: 12,
+              fontSize: 10,
               fontWeight: FontWeight.w400,
             ),
           )
