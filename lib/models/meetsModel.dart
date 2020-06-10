@@ -1,6 +1,7 @@
 class Meets {
   String login;
   int id;
+  String reposUrl;
   String nodeId;
   String avatarUrl;
   String url;
@@ -15,6 +16,7 @@ class Meets {
   Meets({
     this.login,
     this.id,
+    this.reposUrl,
     this.nodeId,
     this.avatarUrl,
     this.url,
@@ -29,6 +31,7 @@ class Meets {
   Meets.fromJson(Map<String, dynamic> json) {
     login = json['login'];
     id = json['id'];
+    reposUrl = json['repos_url'];
     nodeId = json['node_id'];
     avatarUrl = json['avatar_url'];
     url = json['url'];
@@ -45,6 +48,7 @@ class Meets {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['login'] = this.login;
     data['id'] = this.id;
+    data['repos_url'] = this.reposUrl;
     data['node_id'] = this.nodeId;
     data['avatar_url'] = this.avatarUrl;
     data['url'] = this.url;

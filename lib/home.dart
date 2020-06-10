@@ -1,7 +1,7 @@
+import 'package:diggit/models/reposModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:diggit/models/userModel.dart';
 import 'package:diggit/models/meetsModel.dart';
 
 import 'package:diggit/abstract.dart';
@@ -23,6 +23,10 @@ class _MyHomePageState extends State<MyHomePage> {
     // TODO: implement initState
     super.initState();
     appFunction();
+    Meets metUser = await getTheUser();
+    List repos = await getRepos(metUser);
+    print('REPOS:' + repos.length.toString());
+    return metUser;
   }
 
   @override
@@ -60,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Text(
                               '${snapshot.data.bio ?? "Oops I don't have a bio"}',
+                              '${snapshot.data.bio}' ?? 'Oops',
                               style: GoogleFonts.poppins(
                                   fontSize: 15, fontWeight: FontWeight.w400),
                             )
@@ -111,6 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       bottom: 75,
                       child: Text(
                         '${snapshot.data.name}',
+                        '${snapshot.data.name}' ?? 'Developers Name',
                         style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontSize: 35,
@@ -141,6 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Text('${snapshot.data.followers}',
+                              Text('${snapshot.data.followers}' ?? '0',
                                   style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600)),
@@ -163,6 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Text('${snapshot.data.following}',
+                              Text('${snapshot.data.following}' ?? '0',
                                   style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600)),
