@@ -13,26 +13,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future appFunction() async {
-    User meet = await getTheUser();
-    Meets info = await infoFoundUser(meet);
-    return info;
+    Meets metUser = await getTheUser();
+    return metUser;
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    appFunction();
-    Meets metUser = await getTheUser();
-    List repos = await getRepos(metUser);
-    print('REPOS:' + repos.length.toString());
-    return metUser;
+  Future setRepos(Meets metUser) async {
+    List<Repos> repos = await getRepos(metUser);
+    return repos;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
+        // this needs to be worked on -> Moving to a providers architecture
         future: appFunction(),
         builder: (context, snapshot) {
           if (snapshot.hasData == true) {
@@ -63,7 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                   fontWeight: FontWeight.w600, fontSize: 20),
                             ),
                             Text(
-                              '${snapshot.data.bio ?? "Oops I don't have a bio"}',
                               '${snapshot.data.bio}' ?? 'Oops',
                               style: GoogleFonts.poppins(
                                   fontSize: 15, fontWeight: FontWeight.w400),
@@ -115,7 +108,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       left: 40,
                       bottom: 75,
                       child: Text(
-                        '${snapshot.data.name}',
                         '${snapshot.data.name}' ?? 'Developers Name',
                         style: GoogleFonts.poppins(
                             color: Colors.white,
@@ -146,7 +138,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              Text('${snapshot.data.followers}',
                               Text('${snapshot.data.followers}' ?? '0',
                                   style: GoogleFonts.poppins(
                                       fontSize: 16,
@@ -169,7 +160,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              Text('${snapshot.data.following}',
                               Text('${snapshot.data.following}' ?? '0',
                                   style: GoogleFonts.poppins(
                                       fontSize: 16,
@@ -199,49 +189,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(
-                              top: 20, left: 35, right: 12, bottom: 15),
-                          height: 150,
-                          width: 230,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.grey[500], blurRadius: 20)
-                              ]),
-                        ),
-                        Container(
-                          margin:
-                              EdgeInsets.only(top: 20, right: 12, bottom: 15),
-                          height: 150,
-                          width: 230,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.grey[500], blurRadius: 20)
-                              ]),
-                        ),
-                        Container(
-                          margin:
-                              EdgeInsets.only(top: 20, right: 12, bottom: 15),
-                          height: 150,
-                          width: 230,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.grey[500], blurRadius: 20)
-                              ]),
-                        ),
-                      ],
-                    ))
+                    // child: ListView.builder(
+                    // itemBuilder: (BuildContext context, index) {
+                    child: Container(
+                      margin: EdgeInsets.only(
+                          top: 20, left: 35, right: 12, bottom: 15),
+                      height: 150,
+                      width: 230,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(color: Colors.grey[500], blurRadius: 20)
+                          ]),
+                    )
+                    // },
+                    )
               ],
             );
           } else if (snapshot.hasData == false) {
@@ -268,6 +231,11 @@ class _MyHomePageState extends State<MyHomePage> {
           }
         },
       ),
+      floatingActionButton: FloatingActionButton.extended(
+          onPressed: appFunction,
+          label: Text('Meet a new Developer',
+              style: GoogleFonts.poppins(
+                  fontSize: 12, fontWeight: FontWeight.w600))),
     );
   }
 }
