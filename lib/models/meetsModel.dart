@@ -1,6 +1,7 @@
+import 'package:diggit/abstract.dart';
 import 'package:flutter/cupertino.dart';
 
-class Meets with ChangeNotifier {
+class Meets {
   String login;
   int id;
   String reposUrl;
@@ -14,6 +15,7 @@ class Meets with ChangeNotifier {
   String bio;
   int followers;
   int following;
+  Meets meets;
 
   Meets({
     this.login,
@@ -29,6 +31,14 @@ class Meets with ChangeNotifier {
     this.followers,
     this.following,
   });
+
+  Meets.fromUser() {
+    getTheUser();
+  }
+
+  Future fetch() async {
+    meets = await getTheUser();
+  }
 
   Meets.fromJson(Map<String, dynamic> json) {
     login = json['login'];
@@ -63,7 +73,17 @@ class Meets with ChangeNotifier {
     data['following'] = this.following;
     return data;
   }
+}
 
+class MeetsNotifier with ChangeNotifier {
+  Meets _meets;
 
-  
+  setThings() {
+    if (_meets.htmlUrl != null) {
+      notifyListeners();
+      print('NOTIFIED');
+    } else {
+      getTheUser();
+    }
+  }
 }

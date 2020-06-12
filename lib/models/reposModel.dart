@@ -2,7 +2,7 @@ import 'package:diggit/abstract.dart';
 import 'package:diggit/models/meetsModel.dart';
 import 'package:flutter/cupertino.dart';
 
-class Repos with ChangeNotifier{
+class Repos with ChangeNotifier {
   String name;
   String htmlUrl;
   String description;
@@ -10,7 +10,7 @@ class Repos with ChangeNotifier{
   List<Repos> repos;
 
   Repos({this.name, this.htmlUrl, this.description, this.language});
-  
+
   Repos.fromMeets(Meets meets) {
     getRepos(meets);
   }

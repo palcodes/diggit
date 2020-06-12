@@ -49,6 +49,11 @@ class MyApp extends StatelessWidget {
         //       repos.fetch(meets);
         //       return repos;
         //     }),
+        ChangeNotifierProxyProvider<Meets, Repos>(
+          create: (context) => Repos(),
+          update: (context, meets, repo) => Repos.fromMeets(meets),
+        )
+      ],
       child: MaterialApp(
         color: Colors.white,
         debugShowCheckedModeBanner: false,
