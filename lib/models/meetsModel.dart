@@ -1,4 +1,6 @@
-class Meets {
+import 'package:flutter/cupertino.dart';
+
+class Meets with ChangeNotifier {
   String login;
   int id;
   String reposUrl;
@@ -61,4 +63,7 @@ class Meets {
     data['following'] = this.following;
     return data;
   }
+
+
+  
 }
