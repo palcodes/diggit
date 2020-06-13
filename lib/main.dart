@@ -11,46 +11,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    //    SystemChrome.setSystemUIOverlayStyle(
-    //     SystemUiOverlayStyle(statusBarBrightness: Brightness.light)
-    // );
+
     return MultiProvider(
       providers: [
         FutureProvider<Meets>.value(
           value: getTheUser(),
         ),
-        // FutureProvider(
-        //   create: (context) async {
-        //     Meets meets;
-        //     await meets.fetch();
-        //     return meets;
-        //   },
-        // ),
-        // ChangeNotifierProxyProvider<User, Meets>(
-        //     create: (context) => Meets(),
-        //     update: (context, user, meets) {
-        //       meets.fetch();
-        //       return meets;
-        //     }
-        //     // update: (context, user, meets) => Meets.fromUser(),
-        //     ),
-        // ChangeNotifierProxyProvider<Meets, Repos>(
-        //     create: (context) => Repos(),
-        //     update: (context, meets, repos) {
-        //       repos.fetch(meets);
-        //       return repos;
-        //     }),
-        ChangeNotifierProxyProvider<Meets, Repos>(
-          create: (context) => Repos(),
-          update: (context, meets, repo) => Repos.fromMeets(meets),
-        ),
+        ChangeNotifierProxyProvider<Meets, ReposNotifier>(
+            create: (context) => ReposNotifier(),
+            update: (context, meets, repos) => ReposNotifier.fromMeets(meets)),
       ],
       child: MaterialApp(
         color: Colors.white,
