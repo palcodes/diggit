@@ -1,7 +1,6 @@
 import 'package:diggit/abstract.dart';
 import 'package:diggit/models/meetsModel.dart';
 import 'package:diggit/models/reposModel.dart';
-import 'package:diggit/models/userModel.dart';
 import 'package:flutter/material.dart';
 import 'package:diggit/home.dart';
 import 'package:flutter/services.dart';
@@ -22,10 +21,9 @@ class MyApp extends StatelessWidget {
     //    SystemChrome.setSystemUIOverlayStyle(
     //     SystemUiOverlayStyle(statusBarBrightness: Brightness.light)
     // );
-
     return MultiProvider(
       providers: [
-        FutureProvider.value(
+        FutureProvider<Meets>.value(
           value: getTheUser(),
         ),
         // FutureProvider(
@@ -52,7 +50,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProxyProvider<Meets, Repos>(
           create: (context) => Repos(),
           update: (context, meets, repo) => Repos.fromMeets(meets),
-        )
+        ),
       ],
       child: MaterialApp(
         color: Colors.white,
