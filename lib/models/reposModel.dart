@@ -1,6 +1,8 @@
 import 'package:diggit/abstract.dart';
 import 'package:diggit/models/meetsModel.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Repos with ChangeNotifier {
   String name;
@@ -13,6 +15,7 @@ class Repos with ChangeNotifier {
 
   Repos.fromMeets(Meets meets) {
     getRepos(meets);
+    notifyListeners();
   }
 
   void fetch(Meets meets) async {

@@ -15,7 +15,6 @@ class Meets {
   String bio;
   int followers;
   int following;
-  Meets meets;
 
   Meets({
     this.login,
@@ -31,14 +30,6 @@ class Meets {
     this.followers,
     this.following,
   });
-
-  Meets.fromUser() {
-    getTheUser();
-  }
-
-  Future fetch() async {
-    meets = await getTheUser();
-  }
 
   Meets.fromJson(Map<String, dynamic> json) {
     login = json['login'];
@@ -75,15 +66,3 @@ class Meets {
   }
 }
 
-class MeetsNotifier with ChangeNotifier {
-  Meets _meets;
-
-  setThings() {
-    if (_meets.htmlUrl != null) {
-      notifyListeners();
-      print('NOTIFIED');
-    } else {
-      getTheUser();
-    }
-  }
-}
