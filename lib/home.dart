@@ -27,12 +27,11 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var meets = Provider.of<Meets>(context);
-    var repos = Provider.of<Repos>(context);
+    Repos repos = Provider.of<Repos>(context);
     try {
       print('MEETS = ' + meets.toString() ?? 'GOT NULL ON INSTANCE');
       print('MEETS NAME = ' + meets.name ?? 'GOT NULL ON NAME');
-      print('REPOS INSTANCE = ' + repos.toString() ?? 'GOT NULL ON REPOINSTANCE');
-      print('REPOS NAME = ' + repos.name ?? 'GOT NULL ON REPO');
+      print('REPO = ' + repos.name ?? 'GOT NULL ON REPOINSTANCE');
     } catch (e) {
       print("CAUGHT ERROR ON CATCH: " + e.toString());
     }
