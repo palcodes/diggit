@@ -1,3 +1,6 @@
+import 'package:diggit/abstract.dart';
+import 'package:flutter/cupertino.dart';
+
 class Meets {
   String login;
   int id;
