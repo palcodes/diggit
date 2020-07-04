@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "162652821021",
+    "firebase_url": "https://diggit-c5271.firebaseio.com",
+    "project_id": "diggit-c5271",
+    "storage_bucket": "diggit-c5271.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162652821021:android:713473777178ff214d98f4",
+        "android_client_info": {
+          "package_name": "com.example.diggit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162652821021-res42o4beas5rv531fb100skqh5soebv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.diggit",
+            "certificate_hash": "bafe93cb2185c66c1005e466d72d192ac9c98de9"
+          }
+        },
+        {
+          "client_id": "162652821021-sflq248dgm9jai9r6p8gat3sg60smlep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk_AEl6qSsM4wUfA5X_-jgx5oe4sm-yL4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162652821021-sflq248dgm9jai9r6p8gat3sg60smlep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
