@@ -72,8 +72,8 @@ class MyHomePage extends StatelessWidget {
                     width: 85,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      // image: DecorationImage(
-                      // image: NetworkImage(snapshot.data.avatarUrl)),
+                      image:
+                          DecorationImage(image: NetworkImage(meets.avatarUrl)),
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
