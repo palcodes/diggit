@@ -11,7 +11,7 @@ class RepoList extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 20, left: 35, right: 12, bottom: 15),
       height: 150,
-      width: 230,
+      width: 180,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -21,21 +21,21 @@ class RepoList extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            repos.name,
+            repos.name ?? 'Repo Name',
             style: GoogleFonts.poppins(
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
           ),
           Text(
-            repos.language,
+            repos.language ?? 'Language',
             style: GoogleFonts.poppins(
                 fontSize: 13,
                 fontWeight: FontWeight.w700,
                 color: Colors.grey[500]),
           ),
           Text(
-            repos.description,
+            repos.description ?? 'Description',
             style: GoogleFonts.poppins(
               fontSize: 10,
               fontWeight: FontWeight.w400,
