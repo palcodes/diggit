@@ -10,7 +10,7 @@ import 'dart:math';
 Future<Meets> getTheUser() async {
   try {
     http.Response response =
-        await http.get('https://api.github.com/users?per_page=200');
+        await http.get('https://api.github.com/users?per_page=800');
     List<User> users = (json.decode(response.body) as List)
         .map((i) => User.fromJson(i))
         .toList();
