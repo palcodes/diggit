@@ -1,10 +1,15 @@
+// digGit imports 📝
+import 'package:diggit/components/fab.dart';
 import 'package:diggit/components/repos.dart';
 import 'package:diggit/models/reposModel.dart';
+import 'package:diggit/models/meetsModel.dart';
+
+// pub.dev & flutter imports ✅
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:diggit/models/meetsModel.dart';
 import 'package:provider/provider.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -40,12 +45,12 @@ class MyHomePage extends StatelessWidget {
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 8),
-                          child: Text(
+                          child: AutoSizeText(
                             meets.bio ??
                                 "This person doesn't seem to have much to say about themselves 📢",
                             maxLines: 5,
                             style: GoogleFonts.poppins(
-                                fontSize: 13,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black87),
                           ),
@@ -86,7 +91,7 @@ class MyHomePage extends StatelessWidget {
                 ),
                 Positioned(
                   left: 40,
-                  bottom: 120,
+                  bottom: 140,
                   child: Text(
                     'Hi I am,',
                     style:
@@ -95,14 +100,19 @@ class MyHomePage extends StatelessWidget {
                 ),
                 Positioned(
                     left: 40,
-                    bottom: 75,
-                    child: Text(
-                      meets.name ?? 'No Name',
-                      style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 32,
-                          fontWeight: FontWeight.w800),
-                    )),
+                    bottom: 65,
+                    child: Container(
+                      width: 300,
+                      height: 80,
+                      child: AutoSizeText(
+                        meets.name ?? 'No Name',
+                        maxLines: 1,
+                        style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontSize: 45,
+                            fontWeight: FontWeight.w800),
+                      ),
+                    ))
               ],
             ),
             Container(
@@ -129,7 +139,7 @@ class MyHomePage extends StatelessWidget {
                           Text(
                             meets.followers.toString() ?? 'Oops',
                             style: GoogleFonts.poppins(
-                                fontSize: 15, fontWeight: FontWeight.w400),
+                                fontSize: 15, fontWeight: FontWeight.w700),
                           ),
                           Text('Followers',
                               style: GoogleFonts.poppins(
@@ -151,7 +161,7 @@ class MyHomePage extends StatelessWidget {
                           Text(
                             meets.following.toString() ?? 'Oops',
                             style: GoogleFonts.poppins(
-                                fontSize: 15, fontWeight: FontWeight.w400),
+                                fontSize: 15, fontWeight: FontWeight.w700),
                           ),
                           Text('Following',
                               style: GoogleFonts.poppins(
@@ -202,11 +212,14 @@ class MyHomePage extends StatelessWidget {
             //     repos: repos.repos[i],
             //   )
           ],
-        ));
-    // floatingActionButton: FloatingActionButton.extended(
-    //     onPressed: appFunction,
-    //     label: Text('Meet a new Developer',
-    //         style: GoogleFonts.poppins(
-    //             fontSize: 12, fontWeight: FontWeight.w600)))
+        ),
+        floatingActionButton: FAB(launchUrl: () async {
+          String url = meets.htmlUrl;
+          if (await canLaunch(url)) {
+            await launch(url);
+          } else {
+            print("Couldn't launch the person's GitHub profile");
+          }
+        }));
   }
 }

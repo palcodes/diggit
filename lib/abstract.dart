@@ -25,7 +25,6 @@ Future<Meets> getTheUser() async {
     print('CAUGHT ERROR IN getTheUser:' + e.toString());
     return null;
   }
-  ;
 }
 
 Future<List<Repos>> getRepos(Meets foundUser) async {
