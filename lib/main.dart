@@ -1,6 +1,7 @@
 import 'package:diggit/abstract.dart';
 import 'package:diggit/models/meetsModel.dart';
 import 'package:diggit/models/reposModel.dart';
+import 'package:diggit/test_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:diggit/home.dart';
 import 'package:flutter/services.dart';
@@ -18,25 +19,30 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
 
-    return MultiProvider(
-      providers: [
-        FutureProvider<Meets>.value(
-          value: getTheUser(),
-        ),
-        ChangeNotifierProxyProvider<Meets, ReposNotifier>(
-            create: (context) => ReposNotifier(),
-            update: (context, meets, repos) => ReposNotifier.fromMeets(meets)),
-      ],
-      child: MaterialApp(
-        color: Colors.white,
-        debugShowCheckedModeBanner: false,
-        title: 'digGit',
-        theme: ThemeData(
-          primarySwatch: Colors.purple,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: MyHomePage(),
-      ),
+    // return MultiProvider(
+    //   providers: [
+    //     FutureProvider<Meets>.value(
+    //       value: getTheUser(),
+    //     ),
+    //     ChangeNotifierProxyProvider<Meets, ReposNotifier>(
+    //         create: (context) => ReposNotifier(),
+    //         update: (context, meets, repos) => ReposNotifier.fromMeets(meets)),
+    //   ],
+    //   child: MaterialApp(
+    //     color: Colors.white,
+    //     debugShowCheckedModeBanner: false,
+    //     title: 'digGit',
+    //     theme: ThemeData(
+    //       primarySwatch: Colors.purple,
+    //       visualDensity: VisualDensity.adaptivePlatformDensity,
+    //     ),
+    //     home: MyHomePage(),
+    //   ),
+    // );
+    return MaterialApp(
+      color: Colors.white,
+      title: 'digGit',
+      home: TestScreen(),
     );
   }
 }

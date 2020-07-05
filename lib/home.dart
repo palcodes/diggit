@@ -208,11 +208,26 @@ class MyHomePage extends StatelessWidget {
             //     repos: repos.repos[i],
             //   )
           ],
+        ),
+        floatingActionButton: FAB());
+  }
+}
+
+class FAB extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Meets meets = Provider.of<Meets>(context);
+    return FloatingActionButton(
+        onPressed: () {},
+        elevation: 22,
+        child: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white,
+            image: DecorationImage(
+              image: AssetImage('assets/GitHub-Mark-120px-plus.png'),
+            ),
+          ),
         ));
-    // floatingActionButton: FloatingActionButton.extended(
-    //     onPressed: appFunction,
-    //     label: Text('Meet a new Developer',
-    //         style: GoogleFonts.poppins(
-    //             fontSize: 12, fontWeight: FontWeight.w600)))
   }
 }
