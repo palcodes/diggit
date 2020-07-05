@@ -1,8 +1,10 @@
+// digGit imports 📝
 import 'package:diggit/components/fab.dart';
 import 'package:diggit/components/repos.dart';
 import 'package:diggit/models/reposModel.dart';
 import 'package:diggit/models/meetsModel.dart';
 
+// pub.dev & flutter imports ✅
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -48,7 +50,7 @@ class MyHomePage extends StatelessWidget {
                                 "This person doesn't seem to have much to say about themselves 📢",
                             maxLines: 5,
                             style: GoogleFonts.poppins(
-                                fontSize: 13,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black87),
                           ),

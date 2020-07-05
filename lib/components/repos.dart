@@ -2,6 +2,8 @@ import 'package:diggit/models/reposModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// Component to show a list of the repos by the person
+// you came across on digGit
 class RepoList extends StatelessWidget {
   final Repos repos;
   RepoList({this.repos});
