@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:diggit/models/reposModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,15 +24,20 @@ class RepoList extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              repos.name ?? 'Repo Name',
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                fontWeight: FontWeight.w800,
+            SizedBox(
+              height: 30,
+              child: AutoSizeText(
+                repos.name ?? 'Repo Name',
+                maxLines: 1,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
             ),
-            Text(
+            AutoSizeText(
               repos.language ?? 'Language',
+              maxLines: 1,
               style: GoogleFonts.poppins(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
@@ -39,11 +45,14 @@ class RepoList extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(top: 12),
-              child: Text(
-                repos.description ?? 'Description',
-                style: GoogleFonts.poppins(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
+              child: Expanded(
+                child: AutoSizeText(
+                  repos.description ?? 'Description',
+                  maxLines: 4,
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             )

@@ -12,11 +12,12 @@ class FAB extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
         onPressed: launchUrl,
-        elevation: 22,
+        elevation: 42,
         child: Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.white,
+            border: Border.all(color: Colors.purple),
             image: DecorationImage(
               image: AssetImage('assets/GitHub-Mark-120px-plus.png'),
             ),

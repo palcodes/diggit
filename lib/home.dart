@@ -45,12 +45,12 @@ class MyHomePage extends StatelessWidget {
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 8),
-                          child: Text(
+                          child: AutoSizeText(
                             meets.bio ??
                                 "This person doesn't seem to have much to say about themselves 📢",
                             maxLines: 5,
                             style: GoogleFonts.poppins(
-                                fontSize: 14,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black87),
                           ),
@@ -106,7 +106,7 @@ class MyHomePage extends StatelessWidget {
                       height: 80,
                       child: AutoSizeText(
                         meets.name ?? 'No Name',
-                        maxLines: 2,
+                        maxLines: 1,
                         style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontSize: 45,
@@ -139,7 +139,7 @@ class MyHomePage extends StatelessWidget {
                           Text(
                             meets.followers.toString() ?? 'Oops',
                             style: GoogleFonts.poppins(
-                                fontSize: 15, fontWeight: FontWeight.w400),
+                                fontSize: 15, fontWeight: FontWeight.w700),
                           ),
                           Text('Followers',
                               style: GoogleFonts.poppins(
@@ -161,7 +161,7 @@ class MyHomePage extends StatelessWidget {
                           Text(
                             meets.following.toString() ?? 'Oops',
                             style: GoogleFonts.poppins(
-                                fontSize: 15, fontWeight: FontWeight.w400),
+                                fontSize: 15, fontWeight: FontWeight.w700),
                           ),
                           Text('Following',
                               style: GoogleFonts.poppins(

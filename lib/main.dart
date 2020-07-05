@@ -18,6 +18,9 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
 
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.black));
+
     return MultiProvider(
       providers: [
         FutureProvider<Meets>.value(
