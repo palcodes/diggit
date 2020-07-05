@@ -1,3 +1,4 @@
+import 'package:diggit/components/fab.dart';
 import 'package:diggit/components/repos.dart';
 import 'package:diggit/models/reposModel.dart';
 import 'package:diggit/models/meetsModel.dart';
@@ -218,27 +219,5 @@ class MyHomePage extends StatelessWidget {
             print("Couldn't launch the person's GitHub profile");
           }
         }));
-  }
-}
-
-class FAB extends StatelessWidget {
-  final Function launchUrl;
-
-  FAB({this.launchUrl});
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-        onPressed: launchUrl,
-        elevation: 22,
-        child: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white,
-            image: DecorationImage(
-              image: AssetImage('assets/GitHub-Mark-120px-plus.png'),
-            ),
-          ),
-        ));
   }
 }
