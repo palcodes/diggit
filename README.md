@@ -1,4 +1,4 @@
-<p align="center"><img height="180px" width="180px" src="/icon.png" alt="digGit"/></p>
+<p><img height="180px" width="180px" src="/icon.png" alt="digGit"/></p>
 
 # digGit - Meet new developers 👩‍💻 👨‍💻
 
