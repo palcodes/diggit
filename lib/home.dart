@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -209,16 +210,26 @@ class MyHomePage extends StatelessWidget {
             //   )
           ],
         ),
-        floatingActionButton: FAB());
+        floatingActionButton: FAB(launchUrl: () async {
+          String url = meets.htmlUrl;
+          if (await canLaunch(url)) {
+            await launch(url);
+          } else {
+            print("Couldn't launch the person's GitHub profile");
+          }
+        }));
   }
 }
 
 class FAB extends StatelessWidget {
+  final Function launchUrl;
+
+  FAB({this.launchUrl});
+
   @override
   Widget build(BuildContext context) {
-    Meets meets = Provider.of<Meets>(context);
     return FloatingActionButton(
-        onPressed: () {},
+        onPressed: launchUrl,
         elevation: 22,
         child: Container(
           decoration: BoxDecoration(

@@ -19,30 +19,30 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
 
-    // return MultiProvider(
-    //   providers: [
-    //     FutureProvider<Meets>.value(
-    //       value: getTheUser(),
-    //     ),
-    //     ChangeNotifierProxyProvider<Meets, ReposNotifier>(
-    //         create: (context) => ReposNotifier(),
-    //         update: (context, meets, repos) => ReposNotifier.fromMeets(meets)),
-    //   ],
-    //   child: MaterialApp(
-    //     color: Colors.white,
-    //     debugShowCheckedModeBanner: false,
-    //     title: 'digGit',
-    //     theme: ThemeData(
-    //       primarySwatch: Colors.purple,
-    //       visualDensity: VisualDensity.adaptivePlatformDensity,
-    //     ),
-    //     home: MyHomePage(),
-    //   ),
-    // );
-    return MaterialApp(
-      color: Colors.white,
-      title: 'digGit',
-      home: TestScreen(),
+    return MultiProvider(
+      providers: [
+        FutureProvider<Meets>.value(
+          value: getTheUser(),
+        ),
+        ChangeNotifierProxyProvider<Meets, ReposNotifier>(
+            create: (context) => ReposNotifier(),
+            update: (context, meets, repos) => ReposNotifier.fromMeets(meets)),
+      ],
+      child: MaterialApp(
+        color: Colors.white,
+        debugShowCheckedModeBanner: false,
+        title: 'digGit',
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: MyHomePage(),
+      ),
     );
+    // return MaterialApp(
+    //   color: Colors.white,
+    //   title: 'digGit',
+    //   home: TestScreen(),
+    // );
   }
 }
