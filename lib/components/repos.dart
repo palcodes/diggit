@@ -45,14 +45,13 @@ class RepoList extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(top: 12),
-              child: Expanded(
-                child: AutoSizeText(
-                  repos.description ?? 'Description',
-                  maxLines: 4,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
+              width: 250,
+              child: AutoSizeText(
+                repos.description ?? 'Description',
+                maxLines: 4,
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             )
