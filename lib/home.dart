@@ -17,7 +17,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Meets meets = Provider.of<Meets>(context);
     ReposNotifier repos = Provider.of<ReposNotifier>(context);
-    if (repos.isNotNull) {
+    if (meets.isNotNull) {
       return Scaffold(
           backgroundColor: Colors.white,
           body: ListView(
