@@ -31,6 +31,7 @@ dependencies:
   auto_size_text: ^2.1.0
   url_launcher: ^5.4.11
   basics: ^0.4.0+1
+  dio: ^3.0.9
 
 dev_dependencies:
   flutter_test:
