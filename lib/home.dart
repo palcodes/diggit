@@ -209,10 +209,6 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                 )
-              // for (int i = 0; i < repos.repos.length; i++)
-              //   RepoList(
-              //     repos: repos.repos[i],
-              //   )
             ],
           ),
           floatingActionButton: FAB(launchUrl: () async {
