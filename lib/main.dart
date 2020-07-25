@@ -27,8 +27,9 @@ class MyApp extends StatelessWidget {
           value: getTheUser(),
         ),
         ChangeNotifierProxyProvider<Meets, ReposNotifier>(
-            create: (context) => ReposNotifier(),
-            update: (context, meets, repos) => ReposNotifier.fromMeets(meets)),
+          create: (context) => ReposNotifier(),
+          update: (context, meets, repos) => ReposNotifier.fromMeets(meets),
+        ),
       ],
       child: MaterialApp(
         color: Colors.white,
