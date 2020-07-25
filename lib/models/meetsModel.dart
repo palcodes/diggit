@@ -62,3 +62,18 @@ class Meets {
     return data;
   }
 }
+
+// class MeetsNotifier with ChangeNotifier {
+//   Meets meets;
+
+//   MeetsNotifier();
+
+//   fetch() async {
+//     getTheUser();
+//     notifyListeners();
+//   }
+
+//   MeetsNotifier.getNotified() {
+//     fetch();
+//   }
+// }
