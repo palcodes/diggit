@@ -152,7 +152,7 @@ class MyHomePage extends StatelessWidget {
                       indent: 8,
                       endIndent: 8,
                       width: 2,
-                      color: Color.fromRGBO(30, 33, 37, 1),
+                      color: Colors.grey[300],
                     ),
                     Container(
                       padding: EdgeInsets.only(right: 15),
@@ -187,28 +187,27 @@ class MyHomePage extends StatelessWidget {
                       fontWeight: FontWeight.w600, fontSize: 20),
                 ),
               ),
-              if (repos != null && repos.repos != null)
-                Container(
-                  height: 200,
-                  margin: EdgeInsets.only(right: 10),
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: repos.repos.length,
-                      itemBuilder: (context, index) => RepoList(
-                            repos: repos.repos[index],
-                          )),
-                )
-              else
-                Container(
-                  margin: EdgeInsets.only(top: 20, bottom: 30),
-                  child: Center(
-                    child: Text(
-                      "This person doesn't seem to make a lot of repos 🤷‍♂️",
-                      style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w600, fontSize: 12),
-                    ),
-                  ),
-                )
+              repos.repos.isNotNull
+                  ? Container(
+                      height: 200,
+                      margin: EdgeInsets.only(right: 10),
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: repos.repos.length,
+                          itemBuilder: (context, index) => RepoList(
+                                repos: repos.repos[index],
+                              )),
+                    )
+                  : Container(
+                      margin: EdgeInsets.only(top: 20, bottom: 30),
+                      child: Center(
+                        child: Text(
+                          "This person doesn't seem to make a lot of repos 🤷‍♂️",
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w600, fontSize: 12),
+                        ),
+                      ),
+                    )
             ],
           ),
           floatingActionButton: FAB(launchUrl: () async {
