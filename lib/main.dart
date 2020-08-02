@@ -23,12 +23,14 @@ class MyApp extends StatelessWidget {
 
     return MultiProvider(
       providers: [
-        FutureProvider<Meets>.value(
-          value: getTheUser(),
+        FutureProvider<Meets>(
+          create: (context) => getTheUser(),
+          lazy: false,
         ),
         ChangeNotifierProxyProvider<Meets, ReposNotifier>(
           create: (context) => ReposNotifier(),
           update: (context, meets, repos) => ReposNotifier.fromMeets(meets),
+          lazy: false,
         ),
       ],
       child: MaterialApp(
