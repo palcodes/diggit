@@ -222,7 +222,7 @@ class MyHomePage extends StatelessWidget {
       return Scaffold(
         body: Center(
             child: Text(
-          'Finding you a new developer to Meet',
+          'Finding you a new Meet...',
           style: GoogleFonts.poppins(
               fontSize: 18,
               color: Colors.grey[600],
