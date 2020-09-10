@@ -34,7 +34,7 @@ class MyHomePage extends StatelessWidget {
                     top: 330,
                     height: 150,
                     child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(14),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,6 +47,7 @@ class MyHomePage extends StatelessWidget {
                           ),
                           Container(
                             margin: EdgeInsets.only(top: 8),
+                            // width: MediaQuery.of(context).size.width - 60,
                             child: AutoSizeText(
                               meets.bio ??
                                   "This person doesn't seem to have much to say about themselves 📢",
@@ -59,7 +60,7 @@ class MyHomePage extends StatelessWidget {
                           )
                         ],
                       ),
-                      width: 350,
+                      width: 340,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
@@ -126,11 +127,11 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 15, left: 35, right: 35),
+                margin: EdgeInsets.only(top: 15, left: 25, right: 25),
                 height: 80,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
                       padding: EdgeInsets.only(left: 12),
@@ -141,11 +142,11 @@ class MyHomePage extends StatelessWidget {
                             Text(
                               meets.followers.toString() ?? 'Oops',
                               style: GoogleFonts.poppins(
-                                  fontSize: 15, fontWeight: FontWeight.w700),
+                                  fontSize: 18, fontWeight: FontWeight.w700),
                             ),
                             Text('Followers',
                                 style: GoogleFonts.poppins(
-                                    fontSize: 14, fontWeight: FontWeight.w500)),
+                                    fontSize: 16, fontWeight: FontWeight.w500)),
                           ]),
                     ),
                     VerticalDivider(
@@ -163,11 +164,11 @@ class MyHomePage extends StatelessWidget {
                             Text(
                               meets.following.toString() ?? 'Oops',
                               style: GoogleFonts.poppins(
-                                  fontSize: 15, fontWeight: FontWeight.w700),
+                                  fontSize: 18, fontWeight: FontWeight.w700),
                             ),
                             Text('Following',
                                 style: GoogleFonts.poppins(
-                                    fontSize: 14, fontWeight: FontWeight.w500)),
+                                    fontSize: 16, fontWeight: FontWeight.w500)),
                           ]),
                     )
                   ],
