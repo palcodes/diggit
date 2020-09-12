@@ -23,8 +23,7 @@ Future<Meets> getTheUser() async {
     print("${foundMeet.name} \n ${foundMeet.bio}");
     return foundMeet;
   } catch (e) {
-    print('CAUGHT ERROR IN getTheUser:' + e.toString());
-    return null;
+    print('CAUGHT ERROR IN getTheUser():' + e.toString());
   }
 }
 
@@ -38,7 +37,6 @@ Future<List<Repos>> getRepos(Meets foundMeet) async {
         (responseForRepo.data as List).map((i) => Repos.fromJson(i)).toList();
     return repos;
   } catch (e) {
-    print('CAUGHT ERROR IN getRepos:' + e.toString());
-    return null;
+    print('CAUGHT ERROR IN getRepos():' + e.toString());
   }
 }
